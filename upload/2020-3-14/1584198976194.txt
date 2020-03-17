@@ -1,0 +1,4 @@
+主题颜色：#FC7FAD	+    #FFFFFF
+
+java -Xms256M -Xmx512M -jar minecraft_server.1.10.jar nogui
+lsof -i:25566

@@ -18,7 +18,7 @@ public class LogUtils {
      * @return
      */
     public static Logger getBussinessLogger() {
-        return LoggerFactory.getLogger(LogEnum.BUSSINESS.getCategory());
+        return LoggerFactory.getLogger(LogEnum.BUSINESS.getCategory());
     }
 
     /**

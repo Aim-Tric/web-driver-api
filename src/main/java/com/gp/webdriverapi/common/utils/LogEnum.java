@@ -8,13 +8,21 @@ package com.gp.webdriverapi.common.utils;
  */
 public enum LogEnum {
 
-
-    BUSSINESS("bussiness"),
-
+    /**
+     * 业务型日志
+     */
+    BUSINESS("business"),
+    /**
+     * 平台日志
+     */
     PLATFORM("platform"),
-
+    /**
+     * 数据库日志
+     */
     DB("db"),
-
+    /**
+     * 异常日志
+     */
     EXCEPTION("exception"),
 
     ;

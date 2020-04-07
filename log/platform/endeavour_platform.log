@@ -1,10 +1,6 @@
-2020-03-17 12:01:52.890 - INFO  [nio-8081-exec-8] c.g.w.s.a.FileController       : 开始上传: %s
-2020-03-17 12:01:53.041 - INFO  [nio-8081-exec-8] c.g.w.s.a.FileController       : %s 上传成功!
-2020-03-17 12:02:01.866 - INFO  [io-8081-exec-10] c.g.w.s.a.FileController       : 开始上传: %s
-2020-03-17 12:02:01.963 - INFO  [io-8081-exec-10] c.g.w.s.a.FileController       : %s 上传成功!
-2020-03-17 12:02:14.382 - INFO  [nio-8081-exec-1] c.g.w.s.a.FileController       : 开始上传: %s
-2020-03-17 12:02:14.439 - INFO  [nio-8081-exec-1] c.g.w.s.a.FileController       : %s 上传成功!
-2020-03-17 12:16:05.274 - INFO  [io-8081-exec-10] c.g.w.s.a.FileController       : 开始上传: %s
-2020-03-17 12:16:05.341 - INFO  [io-8081-exec-10] c.g.w.s.a.FileController       : %s 上传成功!
-2020-03-17 12:18:48.993 - INFO  [io-8081-exec-10] c.g.w.s.a.FileController       : 开始上传: %s
-2020-03-17 12:18:49.085 - INFO  [io-8081-exec-10] c.g.w.s.a.FileController       : %s 上传成功!
+2020-03-28 22:04:40.131 - INFO  [nio-8081-exec-2] c.g.w.s.c.FileController       : 开始下载 eclipse.lnk
+2020-03-28 22:04:40.131 - INFO  [nio-8081-exec-1] c.g.w.s.c.FileController       : 开始下载 eclipse.lnk
+2020-03-28 22:04:40.161 - INFO  [nio-8081-exec-1] c.g.w.s.c.FileController       : eclipse.lnk 下载完成
+2020-03-28 22:04:40.163 - INFO  [nio-8081-exec-2] c.g.w.s.c.FileController       : eclipse.lnk 下载完成
+2020-03-28 22:05:01.907 - INFO  [nio-8081-exec-4] c.g.w.s.c.FileController       : 开始下载 哔哩哔哩.jpg
+2020-03-28 22:05:01.945 - INFO  [nio-8081-exec-4] c.g.w.s.c.FileController       : 哔哩哔哩.jpg 下载完成

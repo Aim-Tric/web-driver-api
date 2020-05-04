@@ -1,11 +1,16 @@
 package com.gp.webdriverapi.config;
 
-import com.gp.webdriverapi.config.interceptor.AuthenticationFilter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * 跨域处理配置
+ *
+ * @author vent
+ * @date 2020/3/20
+ */
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
 

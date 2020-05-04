@@ -1,12 +1,14 @@
 package com.gp.webdriverapi.common;
 
 import com.baomidou.mybatisplus.extension.api.R;
+import com.gp.webdriverapi.common.utils.CryptoUtils;
 import com.gp.webdriverapi.common.utils.LogUtils;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 控制器基类
+ * 提取了CRUD操作的重复操作
  *
  * @author vent
  * @date 2020/03/15
@@ -18,6 +20,10 @@ public class BaseController {
     protected static String UPDATE_FAILED = "更新失败！";
     protected static String DELETE_FAILED = "删除失败！";
     protected static Logger logger = LogUtils.getPlatformLogger();
+
+    protected String decryptParam(String encryptedStr) {
+        return CryptoUtils.decrypt(encryptedStr.getBytes());
+    }
 
     protected R success() {
         return R.ok(null);

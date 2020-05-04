@@ -17,8 +17,8 @@ public class WdUploadFile implements Serializable {
     private String newName;
     private String originalName;
     private String size;
-    private Integer folderId;
-    private Integer category;
+    private String folderId;
+    private String category;
     private int total;
     private int current;
     private String md5;

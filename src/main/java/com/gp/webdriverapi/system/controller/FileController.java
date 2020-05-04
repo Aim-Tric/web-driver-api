@@ -7,8 +7,10 @@ import com.gp.webdriverapi.common.BaseController;
 import com.gp.webdriverapi.common.annotation.Crypto;
 import com.gp.webdriverapi.common.pojo.WdFile;
 import com.gp.webdriverapi.common.pojo.WdUploadFile;
+import com.gp.webdriverapi.common.utils.CryptoUtils;
 import com.gp.webdriverapi.system.service.FileService;
 import com.gp.webdriverapi.system.service.FileTransmitter;
+import com.gp.webdriverapi.system.service.FolderDetailService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -23,7 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 文件控制器
+ * 处理文件相关操作的控制器
  *
  * @author vent
  * @date 2020/03/15
@@ -38,14 +40,15 @@ public class FileController extends BaseController {
     @Autowired
     private FileTransmitter fileTransmitter;
     @Autowired
-    private SystemController systemController;
+    private FolderDetailService folderDetailService;
 
-    @GetMapping("/filter/{id}")
+    @GetMapping("/filter/{categoryId}")
     @ApiOperation(value = "按分类过滤文件")
     @ApiImplicitParam(name = "id", value = "分类id")
-    public R filterByCategory(@PathVariable Integer id) {
+    public R filterByCategory(@PathVariable String categoryId) {
+        String decrypt = decryptParam(categoryId);
         List<WdFile> category = fileService.list(new QueryWrapper<WdFile>()
-                .eq("category", id));
+                .eq("category", Integer.parseInt(decrypt)));
         return success(category);
     }
 
@@ -66,6 +69,14 @@ public class FileController extends BaseController {
             @ApiImplicitParam(name = "files", value = "上传的文件"),
     })
     public R upload(WdUploadFile wdUploadFile) {
+        Integer category = Integer.valueOf(CryptoUtils.decrypt(wdUploadFile.getCategory().getBytes()));
+        Integer folderId = Integer.valueOf(CryptoUtils.decrypt(wdUploadFile.getFolderId().getBytes()));
+
+        WdFile fileInfo = new WdFile();
+        BeanUtils.copyProperties(wdUploadFile, fileInfo);
+        fileInfo.setCategory(category);
+        fileInfo.setFolderId(folderId);
+
         String originalName = wdUploadFile.getOriginalName();
         logger.info("开始上传: %s", originalName);
 
@@ -77,14 +88,13 @@ public class FileController extends BaseController {
             String realPath = fileTransmitter.merge(wdUploadFile);
             //  文件合并成功
             if (realPath != null) {
-                WdFile fileInfo = new WdFile();
-                BeanUtils.copyProperties(wdUploadFile, fileInfo);
+
                 fileInfo.setRealPath(realPath);
                 boolean saved = fileService.save(fileInfo);
                 if (saved) {
                     logger.info("%s 上传成功!", originalName);
-                    return systemController
-                            .getFileAndFolder(wdUploadFile.getFolderId())
+                    return success(folderDetailService
+                            .getAllInfoByFolderId(folderId))
                             .setCode(201)
                             .setMsg("文件上传成功");
                 }
@@ -102,9 +112,7 @@ public class FileController extends BaseController {
             @ApiImplicitParam(name = "fileId", value = "文件id")
     })
     public void download(@PathVariable String fileId, HttpServletRequest request, HttpServletResponse response) {
-        // get file info from database
-        WdFile wdFile = fileService.getById(fileId);
-        // use output stream to output file
+        WdFile wdFile = fileService.getById(decryptParam(fileId));
         fileTransmitter.download(request, response, wdFile);
     }
 
@@ -119,8 +127,7 @@ public class FileController extends BaseController {
                 .eq("id", wdFile.getId())
                 .set("original_name", wdFile.getOriginalName()));
         if (updated) {
-            return systemController
-                    .getFileAndFolder(wdFile.getFolderId());
+            return success(folderDetailService.getAllInfoByFolderId(wdFile.getFolderId()));
         }
         return failed(UPDATE_FAILED);
     }
@@ -152,7 +159,7 @@ public class FileController extends BaseController {
                     .in("id", ids)
                     .set("logical_del", 1));
             WdFile file = fileService.getById(ids[0]);
-            return systemController.getFileAndFolder(file.getFolderId());
+            return success(folderDetailService.getAllInfoByFolderId(file.getFolderId()));
         }
         return failed(DELETE_FAILED);
     }

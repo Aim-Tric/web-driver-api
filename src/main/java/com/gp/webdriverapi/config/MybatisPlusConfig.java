@@ -7,6 +7,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * mybatis配置
+ *
+ * @author vent
+ * @date 2020/03/20
+ */
 @EnableTransactionManagement
 @Configuration
 @MapperScan("com.gp.webdriverapi.**.*")

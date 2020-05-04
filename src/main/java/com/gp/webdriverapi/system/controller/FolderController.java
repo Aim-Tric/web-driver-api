@@ -4,8 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.gp.webdriverapi.common.BaseController;
 import com.gp.webdriverapi.common.annotation.Crypto;
-import com.gp.webdriverapi.system.service.FolderService;
 import com.gp.webdriverapi.common.pojo.WdFolder;
+import com.gp.webdriverapi.system.service.FolderDetailService;
+import com.gp.webdriverapi.system.service.FolderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -13,7 +14,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -32,7 +32,7 @@ public class FolderController extends BaseController {
     @Autowired
     private FolderService folderService;
     @Autowired
-    private SystemController systemController;
+    private FolderDetailService folderDetailService;
 
     @PutMapping("/folder")
     @ApiOperation(value = "更新文件夹信息")
@@ -42,8 +42,7 @@ public class FolderController extends BaseController {
                 new UpdateWrapper<WdFolder>()
                         .eq("id", wdFolder.getId()));
         if (updated) {
-            return systemController
-                    .getFileAndFolder(wdFolder.getParentId());
+            return success(folderDetailService.getAllInfoByFolderId(wdFolder.getParentId()));
         }
         return failed(UPDATE_FAILED);
     }
@@ -54,8 +53,7 @@ public class FolderController extends BaseController {
         wdFolder.setLastUpdateTime(new Date(System.currentTimeMillis()));
         boolean saved = folderService.save(wdFolder);
         if (saved) {
-            return systemController
-                    .getFileAndFolder(wdFolder.getParentId());
+            return success(folderDetailService.getAllInfoByFolderId(wdFolder.getParentId()));
         }
         return failed(CREATE_FAILED);
     }
@@ -82,7 +80,7 @@ public class FolderController extends BaseController {
         WdFolder folder = wdFolders.get(0);
         int parentId = folder.getParentId();
         folderService.updateBatchById(wdFolders);
-        return systemController.getFileAndFolder(parentId);
+        return success(folderDetailService.getAllInfoByFolderId(parentId));
     }
 
 

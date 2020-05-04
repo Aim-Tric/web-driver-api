@@ -18,8 +18,10 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * @author Aim-Trick
- * @date 2020/4/3
+ * 对相应数据进行加密
+ *
+ * @author vent
+ * @date 2020/04/05
  */
 @ControllerAdvice
 public class EncryptResponseBodyAdvice implements ResponseBodyAdvice {
@@ -30,7 +32,6 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice {
         boolean classAnnotationPresent = methodParameter.getContainingClass().isAnnotationPresent(Crypto.class);
         boolean methodAnnotationPresent = Objects.requireNonNull(methodParameter.getMethod()).isAnnotationPresent(Crypto.class);
         if (classAnnotationPresent) {
-            System.err.println("=========support=========");
             return (methodParameter
                     .getContainingClass()
                     .getAnnotation(Crypto.class))

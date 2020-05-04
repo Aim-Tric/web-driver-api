@@ -6,8 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 加密解密相关注解
+ *
  * @author Aim-Trick
- * @date 2020/4/5
+ * @date 2020/04/05
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

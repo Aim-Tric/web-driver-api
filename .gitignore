@@ -31,5 +31,5 @@ build/
 .vscode/
 
 ### Custom ###
-/log/
-/upload/
+./log/**
+./upload/**

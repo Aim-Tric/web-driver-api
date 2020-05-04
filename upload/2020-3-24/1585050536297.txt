@@ -1,0 +1,26 @@
+React：
+	npx create-react-app my-app
+	cd my-app
+	npm start
+	npm run build
+
+	npm install react-redux --save 
+	npm install redux --save 
+	npm install react-router-dom --save  #路由框架
+	npm install axios --save  #ajax异步请求框架
+	npm install antd --save  #UI框架
+	npm install react-transition-group --save  #动画框架
+	npm install babel-plugin-import  #组件按需加载插件	
+	npm install react-app-rewired customize-cra  #插件添加
+	npm install less-loader --save-dev  #less主题样式加载
+	npm install less --save-dev		
+	npm install crypto-js --save　#md5加密
+	npm install --save-dev http-proxy-middleware  #配置代理
+	npm i react-addons-pure-render-mixin --save  #避免重复渲染
+
+vscode:
+	格式化字符串：Shift + Alt + F
+	
+小程序：
+	npm install -g @tarojs/cli   #全局安装
+	taro init demo-app-01       #创建一个小程序

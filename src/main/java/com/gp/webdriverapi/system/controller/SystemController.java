@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 首页控制器
  * 获取首页信息
  *
- * @author vent
+ * @author Devonte
  * @date 2020/03/15
  */
 @Api(tags = "首页数据获取接口")

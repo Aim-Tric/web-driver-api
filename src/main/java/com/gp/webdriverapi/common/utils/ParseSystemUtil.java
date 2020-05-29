@@ -3,7 +3,7 @@ package com.gp.webdriverapi.common.utils;
 /**
  * 进制转换工具类
  *
- * @author Aim-Trick
+ * @author Devonte
  * @date 2020/4/6
  */
 

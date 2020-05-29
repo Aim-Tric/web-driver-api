@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * 跨域处理配置
  *
- * @author vent
+ * @author Devonte
  * @date 2020/3/20
  */
 @Configuration

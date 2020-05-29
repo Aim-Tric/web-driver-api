@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 /**
  * 加密解密相关注解
  *
- * @author Aim-Trick
+ * @author Devonte
  * @date 2020/04/05
  */
 @Target({ElementType.TYPE})

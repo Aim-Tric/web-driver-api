@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 控制器基类
  * 提取了CRUD操作的重复操作
  *
- * @author vent
+ * @author Devonte
  * @date 2020/03/15
  */
 @RequestMapping("/api/v1")

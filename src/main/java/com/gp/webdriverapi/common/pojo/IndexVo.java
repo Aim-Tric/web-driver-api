@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 首页信息的数据
  *
- * @author vent
+ * @author Devonte
  * @date 2020/03/15
  */
 public class IndexVo {

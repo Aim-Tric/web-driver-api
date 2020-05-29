@@ -18,7 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * API文档配置
  *
- * @author vent
+ * @author Devonte
  * @date 2020/04/05
  */
 @Configuration

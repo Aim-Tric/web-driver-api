@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 /**
  * 本地日志参考类
  *
- * @author ckli01
- * @date 2018/5/8
+ * @author Devonte
+ * @date 2020/03/15
  */
 public class LogUtils {
 

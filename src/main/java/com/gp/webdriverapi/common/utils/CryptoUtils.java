@@ -15,7 +15,7 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 
 /**
- * @author Aim-Trick
+ * @author Devonte
  * @date 2020/4/5
  */
 public class CryptoUtils {

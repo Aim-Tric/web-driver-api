@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * shiro验证权限
  *
- * @author vent
+ * @author Devonte
  * @date 2020/4/17
  */
 public class WebDriverRealm extends AuthorizingRealm {

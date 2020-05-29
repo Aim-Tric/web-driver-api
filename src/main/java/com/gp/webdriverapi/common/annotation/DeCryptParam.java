@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author Aim-Trick
+ * @author Devonte
  * @date 2020/5/4
  */
 @Target(ElementType.PARAMETER)

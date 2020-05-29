@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Shiro 配置类
  *
- * @author vent
+ * @author Devonte
  * @date 2020/4/17
  */
 //@Configuration

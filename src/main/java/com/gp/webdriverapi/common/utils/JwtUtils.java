@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Jwt工具类
  *
- * @author Aim-Trick
+ * @author Devonte
  * @date 2020/4/8
  */
 public class JwtUtils {
